@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Scrivere nome
+Type=Application
+Comment=descrizione breve
+Terminal=false
+Categories=Utility;Development;Network;Office;
+Keywords=parole;chiave;ricerca
+
+Icon=/percorso/immagine.png
+Exec=/percorso/eseguibile parametro1 parametro2 etc..
+
+[Desktop Action Azione]
+Name=Azione supplementare
+Exec=/percorso/eseguibile opzione parametro1 parametro2 etc...
+
