@@ -1,12 +1,12 @@
 # HTML
 ## Introduzione
 
-HTML, ossia "HyperText Markup LAnguage", è un linguaggio di markup, utilizzato per la formattazione e per l'impaginazione di documenti ipertestuali.
+HTML, ossia "HyperText Markup Language", è un linguaggio di markup, utilizzato per la formattazione e per l'impaginazione di documenti ipertestuali.
 
 Per definire il modo in cui gli elementi di una pagina dovranno essere disposti al suo interno si utilizzano dei marcatori.
-E' possibile, inoltre, stabilire i collegamenti, detti *link*,  che sussitono tra più pagine.
+E' possibile, inoltre, stabilire i collegamenti, detti *link*, che sussitono tra più pagine.
 
-In genere, una pagina di tipo HTML consiste in un documento di testo, con estensione .html.
+In genere, una pagina di tipo HTML consiste in un documento di testo, con estensione *.html*.
 
 Se HTML, dunque, è un linguaggio che consente di definire la struttura di una pagina Web, per specificarne l'aspetto, in termini di colori, animazioni e qualsiasi altra caratteristica visuale, si può utilizzare CSS, andando a definire i cosiddetti "fogli di stile".
 
@@ -14,7 +14,7 @@ Qualora, inoltre, dovesse servire interverire su qualsiasi aspetto di una pagina
 
 ## Elementi
 
-In una pagina HTML, dunque, tutti gli elementi che la compongono sono connotati tramite dei *tag*, ossia delle etichette, scritte in minuscolo e racchiuse tra parantesi angolate, che ne andranno a specificare il tipo, o più precisamente il ruolo semantico che ciascuno di questi assume.
+In una pagina HTML, dunque, tutti gli elementi che la compongono sono connotati dai *tag*, ossia delle etichette, scritte in minuscolo e racchiuse tra parantesi angolate, che ne andranno a specificare il tipo, o più precisamente il ruolo semantico che ciascuno di questi assume.
 
 ### Attributi 
 
@@ -26,7 +26,7 @@ Gli attributi possono essere distinti in:
 - attributi di base o *core*, utilizzati per la rappresentazione grafica degli elementi;
 - attributi per la gestione degli eventi;
 
-#### Attribuiti Core
+#### *Attribuiti Core*
 
 Ecco un elenco dei principali attribuiti di questo tipo:
 
@@ -38,9 +38,9 @@ Ecco un elenco dei principali attribuiti di questo tipo:
 - *draggable*, per stabilire, tramite un valore booleano, se l'elemento a cui si riferisce è di tipo trascinabile per consentire, eventualmente, un'operazione di drag and drop; 
 
 
-#### Attributi per gli eventi
+#### *Attributi per gli eventi*
 
-Questo tipo di attributi è necessario per l'associazione di determinati comportamenti dell'interfaccia utente 
+Questo tipo di attributi è necessario per l'associazione di determinati comportamenti dell'interfaccia utente.
 
 
 Per quanto riguarda la definizione della struttura di una pagina si possono usare i tag seguenti:
@@ -50,7 +50,7 @@ Per quanto riguarda la definizione della struttura di una pagina si possono usar
 - `<hn></hn>`, per indicare la rilevanza di un titolo o *heading*, nel documento (dove n rappresenta un numero da 1, se l'elemento rappresenta il tema principale della pagina, fino a 6);
 - `<br></br>`, che rappresenta l'istruzione di *break line*, per andare a capo nel mezzo di un testo;
 
-Una struttura di questo tipo, in cui i tag indicano dei contenitori, annidati l'uno dentro l'altro, può essere definita di tipo ad albero.
+Una struttura di questo tipo, in cui i tag indicano dei contenitori, annidati l'uno dentro l'altro, può essere definita ad albero.
 In base alla disposizione che ogni elemento dovrà avere nella pagina, si possono distinguere le seguenti tipologie:
 - *block*, ossia elementi che costituiscono un blocco, come i paragrafi o le sezioni e che quindi necessitano dell'anadare a capo;
 - *inline*, ovvero gli elementi "in linea", che possono essere integrati nel testo, come i link;
