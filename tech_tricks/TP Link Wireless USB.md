@@ -1,14 +1,16 @@
-## TP Link Wireless USB
+## TP Link Mini Wireless Adapter
 
 
 
 ### Caratteristiche del dispositivo
 
-Questo dispositivo consiste in una scheda wireless, provvista di adattatore USB e dal design compatto, progettata per collegare i dispositivi cablati al network wireless.
+Questo dispositivo consiste in una scheda wireless, provvista di adattatore USB 2.0 e dal design compatto, progettata per collegare i dispositivi cablati al network wireless.
 
 Inoltre, è conforme allo standard wireless 802.11 b/g/n e consente di raggiungere una velocità di trasmissione dati fino a 300 Mbps. 
 
 Il modello della pennina, compatibile con sistemi Windows, MAC OS e Linux, è **TL-WN823N**.
+
+Per facilitarne la configurazione, è dotata, inoltre, di pulsante WPS.
 
 
 
@@ -63,3 +65,7 @@ Oppure, se si utilizza un AUR-helper, si può scrivere come segue:
 
 
 Infine, bisognerà riavviare il sistema.
+
+
+
+> Grazie a PsykeDady per il trick su https://t.me/linuxpeople_feed
