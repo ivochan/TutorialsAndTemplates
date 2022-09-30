@@ -48,8 +48,6 @@ E dando poi il comando:
 make quick-install-man
 ```
 
-
-
 ### Funzionamento
 
 Per quanto riguarda la memorizzazione dei dati, Git prevede tre stadi differenti, che sono, nello specifico, i seguenti:
@@ -74,15 +72,13 @@ Il movimento che, invece, interessa il passaggio dall'area di staging al reposit
 
 Per quanto riguarda lo scambio effettivo di informazioni tra un repository remoto ed il suo corrispettivo locale, si definisce operazione di *pull*, il trasferimento di dati dal primo al secondo ed operazione di *push* il processo inverso, cioè il trasferimento di una versione dei dati, modificata sul locale, come ultima modifica da memorizzare anche in remoto.
 
-
-
 ### Configurazione ed utilizzo
 
 Segue una descrizione delle principali funzionalità di Git, comprensive di esempi applicativi.
 
 #### Creazione di un repository
 
-Si supppone di dover creare un repository  *.git* nella cartella di progetto.
+Si suppone di dover creare un repository  *.git* nella cartella di progetto.
 
 A titolo esemplificativo, verrà fatta una prova utilizzando le seguenti cartelle:
 
@@ -122,8 +118,6 @@ Nello specifico, nella prima, *project_directory*, si potranno visionare i file 
 
 Si precisa che, talvolta, alcune di queste informazioni sono memorizzate all'interno di file in formato binario, che non possono essere, quindi, modificati direttamente e di difficile consultazione.
 
-//TODO push e pull
-
  #### Aggiunta di un repository remoto
 
 Per testare l'aggiunta di un repository remoto, prendendo in considerazione l'esempio sopradescritto, si dovrà tenere presente che le cartelle *project_directory* e *second_remote_repository* punteranno, entrambe, al repository remoto indicato come *main_remote_repository*. Si precisa, inoltre, che *project_directory* avrà un secondo repository remoto, costituito proprio da *second_remote_repository/.git*.
@@ -157,6 +151,34 @@ Infine, avviando il terminale dalla cartella *second_remote_repository*, si potr
 git remote add orgin ~/main_remote_repository
 ```
 
+#### Comunicazione con un repository remoto
+
+Le operazioni principali sono:
+
+- l'azione di *push*, per scaricare lo stato dei dati attuale, sul locale, tramite il comando:
+
+  ```bash
+  git pull [repository_name] [branch_name]
+  ```
+
+- l'istruzione di *pull*, per caricare lo stato delle modifiche attuale, dal locale, sul repository remoto, scrivendo:
+
+  ```bash
+  git push [repository_name] [branch_name]
+  ```
+
+Si specifica che è possibile omettere il nome del branch, così come quello del repository, se ne esiste uno soltanto.
+
+Invece, nel caso di più repository, è conveniente utilizzare l'opzione *upstream*, come segue:
+
+```bash
+git push --set-upstream [repository_name] [branch_name]
+```
+
+In modo che il repository ed il branch vengano selezionati in maniera predefinita, nel caso in cui non siano stati specificati.
+
+È consigliato effettuare sempre un'operazione di *pull*, prima di apportare delle modifiche in locale, ossia prima di eseguire un'istruzione di *push*.
+
 #### File da escludere dalla memorizzazione
 
 Talvolta, può rivelarsi utile evitare che una determinata categoria di dati non venga registrata nella storia di un progetto, come spesso accade, nel caso di sviluppo di un software, di voler escludere, ad esempio, i file binari risultati dalla compilazione del codice in questione.
@@ -184,8 +206,6 @@ Segue una descrizione delle voci presenti, quali:
 - `.classpath` , per escludere il file denominato *.classpath*, utilizzato da vari Desktop Environment per indicare, ad esempio, il classpath di Java;
 - `.project?` , per evitare il caricamento di tutti quei file il cui nome inizi con *.project*, seguito poi da qualsiasi altro carattere, come accade nel caso di *.projects*, oppure per le cartelle denominate *.project*, che corrisponde alla scrittura *.project/*;
 - `src/*/samples/` , per escludere una cartella specifica, in questo caso *samples*, presente in *src*;
-
-
 
 ### Comandi principali di gestione
 
@@ -297,6 +317,8 @@ git commit -m "commit_message" [file_name]
 
 dove al posto della voce "file_name" si potrà, anche, scrivere un elenco di file o cartelle, oppure il carattere ".", per specificare di validare le modifiche effettuate in qualsiasi cartella, con le rispettive sottocartelle, del progetto in questione.
 
+##### Attuazione della totalità delle modifiche e scrittura dei messaggi di commit
+
 Se a seguito del comando di commit non viene espressa alcuna speficifica di percorso, allora verranno presi in considerazione tutti gli aggiornamenti risultati, anche se, il comando previsto per questa funzione è il seguente:
 
 ```bash
@@ -324,15 +346,85 @@ Si consiglia di effettuare sempre dei commit che corrispondano a delle modifiche
 >
 > 
 
+##### Log dei commit
 
+Dopo aver eseguito un'azione di commit, questa verrà registrata nei file di *log*, una sequenza temporale di tutte le operazione effettuate sulla directory di progetto remota. Infatti, proprio tramite la consultazione di questi file, sarà possibile avere contezza della storia di tutte le modifiche e dei messaggi effettuati, accompagnati dalle date in cui si sono verificate e da codici identificativi.
 
+Per accedere a queste informazioni sarà sufficiente digitare:
 
+```bash
+git log
+```
 
+Se si avesse la necessità di consultare soltanto il messaggio di commit, oppure il codice ad essa associato, usufruendo dell'opzione *--oneline*, si potrà avere un riepilogo di quest'utilimi, scrivendo:
 
+```bash
+git log --oneline
+```
 
+Se, al contrario, si volesse visionare un file di log, che sia il più accurato e dettagliato possibile, si potrà utilizzare il comando:
 
+```bash
+git whatchanged
+```
 
+includendo, in questo modo, anche i nomi dei dati che sono stati interessati dai cambiamenti.
 
+#### Dall'azione di commit alla working directory per invertirne gli effetti
+
+Nel caso in cui sia stata effettuata un'operazione di commit indesiderata e di cui, dunque, se ne vogliono annullare gli effetti, è possibile invertire il processo tramite l'azione di *revert*. Tramite questo comando, infatti, sarà possibile portare lo stato della directory di progetto ad momento precedente a quello dell'ultimo commit effettuato, causando, quindi, una regressione  di quest'ultimo, tramite quella che non sarà altro che un nuovo commit. Questo vuol dire che sarà possibile, sempre tramite un'azione di revert, annullare anche gli effetti di questa particolare operazione.
+
+Per prima cosa sarà necessario controllare quale sia il codice del commit che risulta essere successivo a quello che si riferisce allo stato delle modifiche a cui si vuole ritornare e quindi mantenere. A questo proposito basterà consultare il log tramite il comando:
+
+```bash
+git log --oneline
+```
+
+Dopo di che si potrà eseguire l'operazione di *revert* scrivendo:
+
+```bash
+git revert [commit_code]
+```
+
+dove al posto di "commit_code" bisognerà scrivere il codice del commit che si vuole annullare.
+
+Per evitare di annullare le modifiche di un commit che si vuole, invece, mantenere, si potrà scrivere:
+
+```bash
+git revert -n [commit_code]
+```
+
+Per eliminare totalmente la storia delle modifiche fino ad un determinato commit si potrà, invece, utilizzare l'istruzione di *reset*, nel modo seguente:
+
+```bash
+git reset [commit_code]
+```
+
+Nel caso in cui il commit da annullare sia il primo effettuato in tutta la storia del progetto, allora, bisognerà cancellarla, digitando:
+
+```bash
+git update-ref -d HEAD
+```
+
+Se si tratta di un commit successivo al primo, allora, si potrà scrivere:
+
+```bash
+git reset --soft HEAD
+```
+
+#### Controllo dello stato delle modifiche
+
+Per controllare se i dati di interesse siano stati interessati o meno da dei cambiamenti si potrà utilizzare l'istruzione di *check*, digitando:
+
+```bash
+git status
+```
+
+Nel caso in cui si volessero avere delle informazioni più dettagliate, anche per quanto riguarda i repository coinvolti, si potrà eseguire, prima effettuare un controllo sullo stato, un'azione di *fetch*, scrivendo:
+
+```bash
+git fetch [repository_name]
+```
 
 
 
